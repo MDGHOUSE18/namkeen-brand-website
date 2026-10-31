@@ -1,0 +1,97 @@
+<section class="page-hero page-hero--crimson">
+  <div class="container page-hero__inner">
+    <div>
+      <span class="eyebrow eyebrow--on-dark">Our Story</span>
+      <h1>More Than Just a Snack</h1>
+      <p>{{ company.aboutDescription }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="split__body">
+      <span class="eyebrow">Welcome to Crunchora</span>
+      <h2>{{ company.brandName }}</h2>
+      <p>{{ company.aboutDescription }}</p>
+      <p>Crunchora is a new Indian snacks brand beginning its journey with carefully crafted namkeen. Our focus is on honest flavour, consistent quality, and a friendly snacking experience for everyday moments and sharing.</p>
+    </div>
+    <div class="split__media">
+      <div class="frame frame--wide">
+        <app-art kind="packets"></app-art>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Our Mission & Vision</span>
+      <h2>What We Stand For</h2>
+      <p>Guiding principles behind every Crunchora product.</p>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="mv-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <h3>Our Mission</h3>
+        <p>{{ company.mission }}</p>
+      </div>
+      <div class="mv-card mv-card--vision">
+        <div class="mv-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 16v-4M12 8h.01"></path>
+          </svg>
+        </div>
+        <h3>Our Vision</h3>
+        <p>{{ company.vision }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Our Values</span>
+      <h2>Our Core Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value" *ngFor="let v of company.values; let i = index">
+        <span class="value__num">0{{ i + 1 }}</span>
+        <h3>{{ v }}</h3>
+        <p>Quality-focused preparation and honest flavour in every pack.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container quality-band">
+    <div>
+      <span class="eyebrow">Quality First</span>
+      <h2>Crafted with Care</h2>
+      <p>{{ company.aboutDescription }}</p>
+    </div>
+    <div class="frame frame--square">
+      <app-art kind="jars"></app-art>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta__box">
+    <div class="cta__body">
+      <h2>Get in Touch</h2>
+      <p>Reach out for enquiries, retail partnerships, or distribution opportunities.</p>
+    </div>
+    <div class="cta__actions">
+      <a routerLink="/contact" class="btn btn--primary">Contact Us</a>
+    </div>
+  </div>
+</section>

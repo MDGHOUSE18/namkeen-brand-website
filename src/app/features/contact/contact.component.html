@@ -1,0 +1,155 @@
+<section class="page-hero page-hero--crimson">
+  <div class="container page-hero__inner">
+    <div>
+      <span class="eyebrow eyebrow--on-dark">Get in Touch</span>
+      <h1>Contact Us</h1>
+      <p>Reach out for enquiries, retail partnerships, or distribution opportunities.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-grid">
+    <div class="contact-cards">
+      <a class="contact-card" [href]="'mailto:' + contact.email">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="m22 7-10 7L2 7"></path>
+          </svg>
+        </div>
+        <div class="contact-card__body">
+          <span class="contact-card__label">Email Us</span>
+          <strong class="contact-card__value">{{ contact.email }}</strong>
+          <span class="contact-card__note">Send us an email</span>
+        </div>
+      </a>
+
+      <a class="contact-card contact-card--wa" [href]="wa" target="_blank" rel="noopener noreferrer">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path>
+          </svg>
+        </div>
+        <div class="contact-card__body">
+          <span class="contact-card__label">WhatsApp</span>
+          <strong class="contact-card__value">{{ contact.whatsappNumber }}</strong>
+          <span class="contact-card__note">Chat with us</span>
+        </div>
+      </a>
+
+      <div class="contact-card contact-card--info">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <div class="contact-card__body">
+          <span class="contact-card__label">Business Information</span>
+          <strong class="contact-card__value">{{ contact.address || 'Hyderabad, Telangana, India' }}</strong>
+          <span class="contact-card__note">Contact us for business enquiries</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="form-card__head">
+        <h2>Send us a message</h2>
+        <p>We'll get back to you as soon as possible.</p>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-grid">
+          <div class="field" [class.is-invalid]="f['fullName'].invalid && f['fullName'].touched">
+            <label>Full name <span class="req">*</span></label>
+            <input class="control" formControlName="fullName" placeholder="Your full name" />
+            <span class="error-msg" *ngIf="f['fullName'].invalid && f['fullName'].touched">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 8v4M12 16h.01"></path>
+              </svg>
+              Name is required.
+            </span>
+          </div>
+
+          <div class="field" [class.is-invalid]="f['email'].invalid && f['email'].touched">
+            <label>Email address <span class="req">*</span></label>
+            <input class="control" formControlName="email" type="email" placeholder="you@example.com" />
+            <span class="error-msg" *ngIf="f['email'].invalid && f['email'].touched">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 8v4M12 16h.01"></path>
+              </svg>
+              Valid email is required.
+            </span>
+          </div>
+
+          <div class="field">
+            <label>Phone number <span class="opt">(optional)</span></label>
+            <input class="control" formControlName="phone" placeholder="+91 98765 43210" />
+          </div>
+
+          <div class="field">
+            <label>Enquiry type</label>
+            <select class="control" formControlName="enquiryType">
+              <option>General Enquiry</option>
+              <option>Product Enquiry</option>
+              <option>Retailer Enquiry</option>
+              <option>Distributor Enquiry</option>
+            </select>
+          </div>
+
+          <div class="field field--full" [class.is-invalid]="f['message'].invalid && f['message'].touched">
+            <label>Message <span class="req">*</span></label>
+            <textarea class="control" formControlName="message" placeholder="Tell us what you need..."></textarea>
+            <span class="error-msg" *ngIf="f['message'].invalid && f['message'].touched">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 8v4M12 16h.01"></path>
+              </svg>
+              Message is required.
+            </span>
+          </div>
+        </div>
+
+        <div class="form-foot">
+          <button type="submit" class="btn btn--primary" [class.is-loading]="submitting" [disabled]="submitting">
+            <span class="spinner" *ngIf="submitting"></span>
+            {{ submitting ? 'Sending...' : 'Send Message' }}
+          </button>
+          <span class="hint">We'll respond within 1-2 business days.</span>
+        </div>
+
+        <div
+          class="form-status"
+          [class.is-shown]="status"
+          [class.form-status--info]="status && !status.ok"
+          [class.form-status--error]="status && !status.ok">
+          <svg *ngIf="status" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 16v-4M12 8h.01"></path>
+          </svg>
+          <div *ngIf="status">
+            <strong>{{ status.ok ? 'Message Sent' : 'Not Configured' }}</strong>
+            <p>{{ status.message }}</p>
+            <div class="form-status__actions" *ngIf="!status.ok">
+              <a [href]="'mailto:' + contact.email" class="mini-btn mini-btn--mail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-10 7L2 7"></path>
+                </svg>
+                Email Us
+              </a>
+              <a [href]="wa" target="_blank" rel="noopener noreferrer" class="mini-btn mini-btn--wa">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path>
+                </svg>
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

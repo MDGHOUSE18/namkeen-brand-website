@@ -1,0 +1,6 @@
+.product-card { border: 1px solid #eee; border-radius: 12px; overflow: hidden; background: #fff; }
+.product-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.product-card .body { padding: 1rem; }
+.category { color: #b3261e; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+.product-card h3 { margin: 0.25rem 0 0.5rem; }
+.btn { display: inline-block; margin-top: 0.75rem; background: #b3261e; color: #fff; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; }

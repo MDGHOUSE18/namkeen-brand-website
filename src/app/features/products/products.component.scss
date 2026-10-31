@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.empty-msg {
+  text-align: center;
+  color: var(--c-ink-70);
+  padding: 32px 0;
+}
+
+.note-strip {
+  padding-block: var(--s-7);
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px clamp(16px, 1.9vw, 24px);
+    border-radius: var(--r-lg);
+    background: #fff;
+    border: 1px solid var(--c-line);
+    box-shadow: var(--sh-xs);
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--c-primary);
+      flex: none;
+    }
+
+    strong {
+      display: block;
+      font-size: 0.88rem;
+    }
+
+    span {
+      font-size: 0.78rem;
+      color: var(--c-ink-70);
+    }
+  }
+}

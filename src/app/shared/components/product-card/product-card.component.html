@@ -1,0 +1,14 @@
+<article class="product-card card">
+  <div class="product-card__media">
+    <div class="frame frame--product"><app-art kind="product"></app-art></div>
+    <span class="pill pill--crimson product-card__flag">{{ product.category }}</span>
+  </div>
+  <div class="product-card__body">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.shortDescription }}</p>
+    <div class="product-card__foot">
+      <a routerLink="/products" class="link-arrow">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      <a routerLink="/contact" class="btn btn--primary btn--sm">Enquire</a>
+    </div>
+  </div>
+</article>

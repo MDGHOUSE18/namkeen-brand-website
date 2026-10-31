@@ -1,0 +1,34 @@
+<header class="site-header">
+  <div class="container header__inner">
+    <a class="brand" routerLink="/" aria-label="Crunchora home">
+      <!-- <app-art kind="product" className="brand__mark"></app-art> -->
+      <div class="brand__text">
+        <span class="brand__name">{{ brandName }}</span>
+        <span class="brand__tag">Premium Indian Namkeen</span>
+      </div>
+    </a>
+    <button class="menu-btn" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()" aria-controls="primary-nav" aria-label="Toggle navigation">
+      <svg class="i-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <svg class="i-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <nav id="primary-nav" class="primary-nav" [class.open]="menuOpen()">
+      <ul class="nav__list">
+        <li *ngFor="let item of navItems">
+          <a [routerLink]="item.route" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: item.route === '/' }" (click)="closeMenu()">{{ item.label }}</a>
+        </li>
+      </ul>
+      <!-- <a class="btn btn--ghost" routerLink="/contact" (click)="closeMenu()">Contact Us</a> -->
+    </nav>
+    <!-- <div class="header__actions">
+      <a class="btn btn--primary" routerLink="/products">Shop</a>
+    </div> -->
+  </div>
+</header>
+
+<button class="wa-float" (click)="openWhatsApp()" [attr.aria-label]="'Chat on WhatsApp'">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 2v14l-5 3 5-3V2h-3v9l5-3V2h-2a1 1 0 0 0-1 1v12l-5 3 5-3V2H7a1 1 0 0 0-1 1v12l-1 2a1 1 0 0 0 1.7 1.1L16 19.3V3a1 1 0 0 0-1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12 15.5v-4.5L9 12v1.5a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V9.5a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="wa-float__tip">Chat with us</span>
+</button>

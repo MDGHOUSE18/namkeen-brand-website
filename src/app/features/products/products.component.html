@@ -1,0 +1,41 @@
+<section class="page-hero page-hero--gold">
+  <div class="container page-hero__inner">
+    <div>
+      <span class="eyebrow">Premium Indian Snacks</span>
+      <h1>Our Products</h1>
+      <p>Premium Indian snacks, starting with our first offering.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Our Range</span>
+      <h2>Snacks Worth Sharing</h2>
+      <p>Premium Indian namkeen, crafted with care.</p>
+    </div>
+    <div class="products-grid" *ngIf="products.length; else empty">
+      <app-product-card *ngFor="let p of products" [product]="p" />
+    </div>
+    <ng-template #empty>
+      <p class="empty-msg">No products configured yet.</p>
+    </ng-template>
+  </div>
+</section>
+
+<section class="note-strip">
+  <div class="container note-strip__inner">
+    <div class="note-strip__text">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M12 16v-4M12 8h.01"></path>
+      </svg>
+      <div>
+        <strong>Product Details</strong>
+        <span>Pack sizes, pricing, and specifications will be confirmed by the business owner.</span>
+      </div>
+    </div>
+    <a routerLink="/contact" class="btn btn--ghost">Enquire Now</a>
+  </div>
+</section>

@@ -1,0 +1,107 @@
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <span class="eyebrow">A Taste of Indian Tradition</span>
+      <h1 class="hero__title">Every Crunch, <em>A Little Happiness.</em></h1>
+      <p class="hero__lead">{{ company.shortDescription }}</p>
+      <div class="hero__actions">
+        <a routerLink="/products" class="btn btn--primary">Explore Our Products</a>
+        <a routerLink="/contact" class="btn btn--ghost">Get in Touch</a>
+      </div>
+      <ul class="hero__points">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>Authentic Indian Flavours</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>Freshness Guaranteed</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>Made for Sharing</li>
+      </ul>
+    </div>
+    <div class="hero__media">
+      <div class="media-stack">
+        <div class="media-stack__ring"></div>
+        <app-hero-carousel />
+        <div class="media-stack__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Tea-time favourite</div>
+      </div>
+      <div class="hero__badge">
+        <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
+        <div><strong>100% Natural</strong><span>No artificial colours</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section brand-intro">
+  <div class="container split">
+    <div class="split__body">
+      <span class="eyebrow">Our Story</span>
+      <h2>More Than Just a Snack</h2>
+      <p>{{ company.aboutDescription }}</p>
+      <p>Crunchora is a new Indian snacks brand beginning its journey with carefully crafted namkeen. Our focus is on honest flavour, consistent quality, and a friendly snacking experience for everyday moments and sharing.</p>
+      <a routerLink="/about" class="btn btn--ghost">Learn More About Us</a>
+    </div>
+    <div class="split__media">
+      <div class="frame frame--wide"><app-art kind="packets"></app-art></div>
+    </div>
+  </div>
+</section>
+
+<section class="section featured">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Featured Product</span>
+      <h2>Classic Namkeen</h2>
+      <p>Our first offering, crafted to deliver a satisfying crunch and familiar Indian flavour.</p>
+    </div>
+    <div class="product-feature card">
+      <div class="product-feature__media">
+        <div class="frame frame--product"><app-art kind="product"></app-art></div>
+      </div>
+      <div class="product-feature__body">
+        <span class="pill pill--crimson">Traditional Indian Snacks</span>
+        <h3>{{ product?.name }}</h3>
+        <p>{{ product?.shortDescription }}</p>
+        <div class="meta-row">
+          <div><strong>Freshness</strong>Guaranteed</div>
+          <div><strong>Pack Size</strong>Multiple options</div>
+          <div><strong>Flavour</strong>Authentic Indian</div>
+        </div>
+        <div class="product-feature__actions">
+          <a routerLink="/products" class="btn btn--primary">View All Products</a>
+          <a routerLink="/contact" class="btn btn--ghost">Contact for Product Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section why">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Why Choose Crunchora</span>
+      <h2>Made for Joyful Snacking</h2>
+      <p>Authentic flavours, quality-focused preparation, and a friendly experience for every bite.</p>
+    </div>
+    <div class="features">
+      <div class="feature" *ngFor="let v of company.values; let i = index">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+        </div>
+        <h3>{{ v }}</h3>
+        <p>Quality-focused preparation and honest flavour in every pack.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="statement__pattern"></div>
+  <div class="container statement__inner">
+    <div>
+      <blockquote>A Snack for <span>Every Moment</span></blockquote>
+      <p class="statement__sub">From daily tea-time to festive celebrations, Crunchora brings joy to every bite.</p>
+    </div>
+    <div class="statement__media">
+      <div class="frame frame--square"><app-art kind="chai"></app-art></div>
+    </div>
+  </div>
+</section>
+
+<app-contact-cta />

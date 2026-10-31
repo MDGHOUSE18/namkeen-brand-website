@@ -1,0 +1,61 @@
+<div
+  class="carousel"
+  (mouseenter)="pause()"
+  (mouseleave)="resume()"
+  (focusin)="pause()"
+  (focusout)="resume()"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="Namkeen highlights carousel">
+
+  <div class="carousel__slides" aria-live="polite">
+    <div
+      *ngFor="let s of slides; let i = index"
+      class="carousel__slide"
+      [class.is-active]="i === current()"
+      [attr.aria-hidden]="i !== current()"
+      [attr.aria-label]="s.label">
+      <div class="art">
+        <app-art [kind]="s.kind"></app-art>
+      </div>
+      <div class="carousel__scrim"></div>
+      <div class="carousel__caption">
+        <i aria-hidden="true"></i>
+        <span>{{ s.label }}</span>
+      </div>
+    </div>
+  </div>
+
+  <button
+    class="carousel__nav carousel__nav--prev"
+    type="button"
+    (click)="prev()"
+    aria-label="Previous slide">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 18l-6-6 6-6"></path>
+    </svg>
+  </button>
+
+  <button
+    class="carousel__nav carousel__nav--next"
+    type="button"
+    (click)="next()"
+    aria-label="Next slide">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18l6-6-6-6"></path>
+    </svg>
+  </button>
+
+  <div class="carousel__dots" role="tablist" aria-label="Choose slide to display">
+    <button
+      *ngFor="let s of slides; let i = index"
+      type="button"
+      role="tab"
+      class="carousel__dot"
+      [class.is-active]="i === current()"
+      [attr.aria-selected]="i === current()"
+      (click)="go(i)"
+      [attr.aria-label]="'Go to slide ' + (i + 1) + ': ' + s.label">
+    </button>
+  </div>
+</div>
