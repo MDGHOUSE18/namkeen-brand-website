@@ -54,6 +54,32 @@ ng e2e
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
+## Free Deployment on GitHub Pages
+
+This repository is configured for 100% free hosting on GitHub Pages with two easy methods:
+
+### Method A: Automated GitHub Actions CI/CD (Recommended)
+Every commit pushed to the `main` branch automatically triggers the `.github/workflows/deploy.yml` workflow to build and publish the latest site.
+
+To enable GitHub Pages in your repository:
+1. Go to your repository on GitHub: `https://github.com/MDGHOUSE18/namkeen-brand-website`
+2. Click **Settings** > **Pages** (in the left sidebar).
+3. Under **Build and deployment** > **Source**, select **GitHub Actions**.
+4. That's it! Your site will be live at: `https://mdghouse18.github.io/namkeen-brand-website/`
+
+### Method B: Manual One-Click Deploy via CLI
+You can also build and deploy directly to the `gh-pages` branch using npm:
+
+```bash
+npm run deploy
+```
+
+This script automatically:
+- Builds the Angular production bundle with `--base-href /namkeen-brand-website/`
+- Copies `index.html` to `404.html` so client-side SPA routes (e.g. `/about`, `/products`, `/contact`) work on browser reload
+- Creates `.nojekyll` to prevent GitHub from ignoring underscore-prefixed asset files
+- Pushes the built bundle to the `gh-pages` branch
+
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
